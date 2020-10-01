@@ -1,0 +1,16 @@
+{
+  "request" : {
+    "url" : "/items/5e1c439b9f0abc437ef55642",
+    "method" : "OPTIONS"
+  },
+  "response" : {
+    "status" : 204,
+    "headers" : {
+      "Connection" : "keep-alive",
+      "Access-Control-Allow-Method" : "*",
+      "Access-Control-Allow-Origin" : "*",
+      "Access-Control-Max-Age" : "86400"
+    },
+    "transformers": ["response-template"]
+  }
+}

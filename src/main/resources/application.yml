@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: api-gateway
+  profiles:
+    active: dev
+  cloud:
+    gateway:
+      filter:
+      # Removeing all  proxy headers, except "Connection" & "Upgrade" headers ( as these two are required for websocket connection )
+        remove-non-proxy-headers:
+          headers:
+          - Proxy-Authenticate
+          - Proxy-Authorization
+          - Keep-Alive
+          - TE
+          - Trailer
+          - Transfer-Encoding
+      routes:
+      # =====================================
+      - id: get_all_items
+        uri: lb://item-service
+        predicates:
+        - Method=GET
+        - Path=/items
+        filters:
+        - PreserveHostHeader
+info:
+  version: '@project.version@'
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+---
+spring:
+  profiles: dev
+server:
+  port: 8080
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    register-with-eureka: false
+  instance:
+    preferIpAddress: true
+---
+spring:
+  profiles: test
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:${wiremock.server.port}/eureka}
+    register-with-eureka: false
+        
