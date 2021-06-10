@@ -9,7 +9,7 @@ In a border perspective this service is going to provide the following:
 # Building from Source
 Clone the git repository using the URL on the Gitlab home page:
 
-    $ git clone https://github.com/muhammadaliqasmi/api-gatway
+    $ git clone https://github.com/muhammadaliqasmi/api-gatway.git
     $ cd api-gateway
 
 ## Command Line
