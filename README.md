@@ -4,14 +4,12 @@ API Gateway is an implementation of the Gateway + Backend for Front-End pattern.
 
 In a border perspective this service is going to provide the following:
 
-- Security - Authentication/Authorization.
 - Facade APIs which will interact with individual micro-services and provide an output suitable for the respective Front-End as already described above.
-- Rate Limiting as per different consumer contracts.
 
 # Building from Source
 Clone the git repository using the URL on the Gitlab home page:
 
-    $ git clone http://git.etilizepak.com/rd/api-gateway.git
+    $ git clone https://github.com/muhammadaliqasmi/api-gatway
     $ cd api-gateway
 
 ## Command Line
